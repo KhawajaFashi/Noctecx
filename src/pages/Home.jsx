@@ -2,6 +2,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import porfolioImg from '../images/portfolio.avif';
 import React, { useState, useEffect } from 'react';
 import { Link, animateScroll as scroll } from 'react-scroll';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 function Home() {
@@ -63,6 +65,15 @@ function Home() {
     const [isHeaderHidden, setIsHeaderHidden] = useState(true);
     const [topSecOpacity, setTopSecOpacity] = useState(1);
   
+    useEffect(() => {
+        AOS.init({
+          duration: 500,
+          offset: 30,    
+          easing: 'ease-in',
+
+        });
+      }, []);
+
     useEffect(() => {
 
       const handleScroll = () => {
@@ -145,24 +156,24 @@ function Home() {
            
                 {/* About section */}
                 <div className="about-sec" name='about'>
-                    <div className="badge"><i class="bi bi-info-circle"></i> About US</div>
-                    <h1>WHAT DIFFERENCE?</h1>
-                    <h3>Noctecx turn your visions into reality . Our expert <br />team works closely with you to deliver high-quality <br />software solutions that drive business growth. It's up <br />to you what you need . We are here to help you succeed .</h3>
+                    <div className="badge" data-aos="zoom-in"><i class="bi bi-info-circle"></i> About US</div>
+                    <h1 data-aos="zoom-in">WHAT DIFFERENCE?</h1>
+                    <h3 data-aos="zoom-in">Noctecx turn your visions into reality . Our expert <br />team works closely with you to deliver high-quality <br />software solutions that drive business growth. It's up <br />to you what you need . We are here to help you succeed .</h3>
                 </div>
 
                 {/* Feature section */}
                 <div className="feature-sec" name='feature'>
-                    <div className="badge"><i class="bi bi-info-circle"></i> Included Features</div>
-                    <h1>STAGES OF DEVELOPMENT</h1>
-                    <p>Discover our step-by-step approach to bringing ideas to life, guiding each project from initial concept to final delivery<br />with a focus on quality, creativity, and user satisfaction at every stage.</p>
+                    <div className="badge" data-aos="zoom-in"><i class="bi bi-info-circle"></i> Included Features</div>
+                    <h1 data-aos="zoom-in">STAGES OF DEVELOPMENT</h1>
+                    <p data-aos="zoom-in">Discover our step-by-step approach to bringing ideas to life, guiding each project from initial concept to final delivery<br />with a focus on quality, creativity, and user satisfaction at every stage.</p>
                     {/* cards */}
                     <div className="cards">
                         {cardsData.map((card, index) =>{
                             return(
                                 <div className="card" key={index} onClick={() => handleCardClick(card)}>
                                     <div className="top-icon">{card.icon}</div>
-                                    <h2>{card.title}</h2>
-                                    <p>{card.description}</p>
+                                    <h2 data-aos="zoom-in">{card.title}</h2>
+                                    <p data-aos="zoom-in">{card.description}</p>
                                     <div className="bottum-icon"><i class="bi bi-info-circle"></i></div>
                                 </div>
                             )
@@ -183,56 +194,56 @@ function Home() {
 
                 {/* Services */}
                 <div className="services-sec" name='services'>
-                    <div className="badge"><i class="bi bi-info-circle"></i> Our Services</div>
-                    <h1>HOW CAN WE HELP?</h1>
-                    <p>From the groundwork to your online commercial growth, we've got it all under control! Explore our internal services:</p>
+                    <div className="badge" data-aos="zoom-in"><i class="bi bi-info-circle"></i> Our Services</div>
+                    <h1 data-aos="zoom-in">HOW CAN WE HELP?</h1>
+                    <p data-aos="zoom-in">From the groundwork to your online commercial growth, we've got it all under control! Explore our internal services:</p>
 
                     <div className="services">
                         <div className="service">
                             <div className="ser-content">
                                 <i class="bi bi-info-circle"></i>
-                                <h2>Website Development</h2>
-                                <p>We create dynamic, responsive websites that not only look great but also provide seamless functionality across all devices. Whether you need a simple landing page or a complex web application, we ensure your site is fast, secure, and built to scale.</p>
+                                <h2 data-aos="zoom-in">Website Development</h2>
+                                <p data-aos="zoom-in">We create dynamic, responsive websites that not only look great but also provide seamless functionality across all devices. Whether you need a simple landing page or a complex web application, we ensure your site is fast, secure, and built to scale.</p>
                                 </div>
                             <button>Ask for offer <i class="bi bi-arrow-right-circle"></i></button>
                         </div>
                         <div className="service">
                             <div className="ser-content">
                                 <i class="bi bi-info-circle"></i>
-                                <h2>App Development</h2>
-                                <p>Optimize your online store with our tailored e-commerce solutions. We offer everything from Shopify setup to advanced customizations and integrations, ensuring a smooth shopping experience for your customers. Prices start from 2500€.</p>
+                                <h2 data-aos="zoom-in">App Development</h2>
+                                <p data-aos="zoom-in">Optimize your online store with our tailored e-commerce solutions. We offer everything from Shopify setup to advanced customizations and integrations, ensuring a smooth shopping experience for your customers. Prices start from 2500€.</p>
                                 </div>
                             <button>Ask for offer <i class="bi bi-arrow-right-circle"></i></button>
                         </div>
                         <div className="service">
                             <div className="ser-content">
                                 <i class="bi bi-info-circle"></i>
-                                <h2>E-COMMERCE SOLUTIONS</h2>
-                                <p>Optimize your online store with our tailored e-commerce solutions. We offer everything from Shopify setup to advanced customizations and integrations, ensuring a smooth shopping experience for your customers. Prices start from 2500€</p>
+                                <h2 data-aos="zoom-in">E-COMMERCE SOLUTIONS</h2>
+                                <p data-aos="zoom-in">Optimize your online store with our tailored e-commerce solutions. We offer everything from Shopify setup to advanced customizations and integrations, ensuring a smooth shopping experience for your customers. Prices start from 2500€</p>
                                 </div>
                             <button>Ask for offer <i class="bi bi-arrow-right-circle"></i></button>
                         </div>
                         <div className="service">
                             <div className="ser-content">
                                 <i class="bi bi-info-circle"></i>
-                                <h2>Cloud Computing</h2>
-                                <p>"Our cloud solutions enable your business to scale securely and cost-effectively. From infrastructure setup to migration and optimization, we help you leverage the full potential of the cloud, ensuring your business remains agile and future-ready.</p>
+                                <h2 data-aos="zoom-in">Cloud Computing</h2>
+                                <p data-aos="zoom-in">"Our cloud solutions enable your business to scale securely and cost-effectively. From infrastructure setup to migration and optimization, we help you leverage the full potential of the cloud, ensuring your business remains agile and future-ready.</p>
                                 </div>
                             <button>Ask for offer <i class="bi bi-arrow-right-circle"></i></button>
                         </div>
                         <div className="service">
                             <div className="ser-content">
                                 <i class="bi bi-info-circle"></i>
-                                <h2>UX/UI DESIGN</h2>
-                                <p>Our Android development services bring your mobile ideas to life with intuitive and high-performing apps. From native apps to fully integrated solutions, we design and build apps that engage users and help businesses grow.</p>
+                                <h2 data-aos="zoom-in">UX/UI DESIGN</h2>
+                                <p data-aos="zoom-in">Our Android development services bring your mobile ideas to life with intuitive and high-performing apps. From native apps to fully integrated solutions, we design and build apps that engage users and help businesses grow.</p>
                                 </div>
                             <button>Ask for offer <i class="bi bi-arrow-right-circle"></i></button>
                         </div>
                         <div className="service">
                             <div className="ser-content">
                                 <i class="bi bi-info-circle"></i>
-                                <h2>No-code Development</h2>
-                                <p>Our Android development services bring your mobile ideas to life with intuitive and high-performing apps. From native apps to fully integrated solutions, we design and build apps that engage users and help businesses grow.</p>
+                                <h2 data-aos="zoom-in">No-code Development</h2>
+                                <p data-aos="zoom-in">Our Android development services bring your mobile ideas to life with intuitive and high-performing apps. From native apps to fully integrated solutions, we design and build apps that engage users and help businesses grow.</p>
                                 </div>
                             <button>Ask for offer <i class="bi bi-arrow-right-circle"></i></button>
                         </div>
@@ -242,15 +253,15 @@ function Home() {
 
                 {/* projects */}
                 <div className="projects-sec" name='projects'>
-                    <div className="badge"><i class="bi bi-info-circle"></i> Portfolio</div>
-                    <h1>Projects</h1>
-                    <p>"We’re proud of the projects we’ve delivered for our clients. Here are a few examples of how we’ve helped businesses <br />transform their digital presence with innovative software solutions."</p>
+                    <div className="badge" data-aos="zoom-in"><i class="bi bi-info-circle"></i> Portfolio</div>
+                    <h1 data-aos="zoom-in">Projects</h1>
+                    <p data-aos="zoom-in">"We’re proud of the projects we’ve delivered for our clients. Here are a few examples of how we’ve helped businesses <br />transform their digital presence with innovative software solutions."</p>
 
                     <div className="projects">
                         <div className="project">
                             <div className="left">
-                                <div className="badge"><i class="bi bi-info-circle"></i> Portfolio</div>
-                                <h2>Tanvir Ahmad</h2>
+                                <div className="badge" data-aos="zoom-in"><i class="bi bi-info-circle"></i> Portfolio</div>
+                                <h2 data-aos="zoom-in">Tanvir Ahmad</h2>
                                 <p>A beautifully designed portfolio website built on Framer. We worked with our client to create an interactive, visually stunning website that showcases their work and makes it easy for potential clients to get in touch. The site is fully responsive, optimized, and easy to manage</p>
                                 <h5>Our Services: <span>Website development</span></h5>
                                 <button>Check it out!</button>
@@ -262,8 +273,8 @@ function Home() {
 
                         <div className="project">
                             <div className="left">
-                                <div className="badge"><i class="bi bi-info-circle"></i> Portfolio</div>
-                                <h2>Tanvir Ahmad</h2>
+                                <div className="badge" data-aos="zoom-in"><i class="bi bi-info-circle"></i> Portfolio</div>
+                                <h2 data-aos="zoom-in">Tanvir Ahmad</h2>
                                 <p>A beautifully designed portfolio website built on Framer. We worked with our client to create an interactive, visually stunning website that showcases their work and makes it easy for potential clients to get in touch. The site is fully responsive, optimized, and easy to manage</p>
                                 <h5>Our Services: <span>Website development</span></h5>
                                 <button>Check it out!</button>
@@ -275,12 +286,12 @@ function Home() {
 
                         <div className="project">
                             <div className="left">
-                                <div className="badge"><i class="bi bi-info-circle"></i> Portfolio</div>
-                                <h2>Tanvir Ahmad</h2>
+                                <div className="badge" data-aos="zoom-in"><i class="bi bi-info-circle"></i> Portfolio</div>
+                                <h2 data-aos="zoom-in">Tanvir Ahmad</h2>
                                 <p>A beautifully designed portfolio website built on Framer. We worked with our client to create an interactive, visually stunning website that showcases their work and makes it easy for potential clients to get in touch. The site is fully responsive, optimized, and easy to manage</p>
                                 <h5>Our Services: <span>Website development</span></h5>
                                 <button>Check it out!</button>
-                            </div>
+                            </div> 
                             <div className="right">
                                 <img src={porfolioImg} alt="Img" />
                             </div>
@@ -294,15 +305,15 @@ function Home() {
                 {/* Contact */}
                 
                 <div className="contact-sec" name='contact'>
-                    <div className="badge"><i class="bi bi-info-circle"></i> Contact</div>
-                    <h1>Contact Us!!</h1>
-                    <p>For lauching your website, we hre here for you. Discuss with us for more</p>
+                    <div data-aos="zoom-in" className="badge"><i class="bi bi-info-circle"></i> Contact</div>
+                    <h1 data-aos="zoom-in">Contact Us!!</h1>
+                    <p data-aos="zoom-in">For lauching your website, we hre here for you. Discuss with us for more</p>
                     <form action="">
-                        <label htmlFor="name">name</label> <br />
+                        <label data-aos="zoom-in" htmlFor="name">name</label> <br />
                         <input type="text" placeholder='Muhammad Ali' /> <br />
-                        <label htmlFor="name">email</label> <br />
+                        <label data-aos="zoom-in" htmlFor="name">email</label> <br />
                         <input type='text' placeholder='Ali@gmail.com' /> <br />
-                        <label htmlFor="name">Requirment</label> <br />
+                        <label data-aos="zoom-in" htmlFor="name">Requirment</label> <br />
                         <textarea name="" id="" placeholder='Enter your Website Requirment and we will contact less than a day'></textarea> <br />
                         <button>Submit</button>
                     </form>
@@ -334,11 +345,11 @@ function Home() {
                 </div>
                 <div className="right">
                     <div className="top">
-                        <h3>GET IN TOUCH</h3>
+                        <h3 data-aos="zoom-in">GET IN TOUCH</h3>
                         <p>Tell: +92 30000076364</p>
                     </div>
                     <div className="bottom">
-                        <h3>FOLLOW US</h3>
+                        <h3 data-aos="zoom-in">FOLLOW US</h3>
                         <div className="icons">
                             <i class="bi bi-instagram"></i>
                             <i class="bi bi-twitter"></i>
