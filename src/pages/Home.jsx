@@ -6,11 +6,65 @@ import { Link, animateScroll as scroll } from 'react-scroll';
 
 function Home() {
     
+    // Data of the cards
+    const cardsData = [
+        {
+          icon: <i className="bi bi-search"></i>,
+          title: "REQUIREMENT GATHERING",
+          description: "Unique and tailored designs that reflect your brand’s personality and values.",
+          moreInfo: "Our custom design service ensures that your Shopify store stands out with a unique, tailored design that perfectly reflects your brand’s personality and values. We work closely with you to understand your vision and translate it into a visually stunning and cohesive design. From color schemes to typography, every element is meticulously crafted to create a seamless and engaging user experience. Our goal is to deliver a design that not only looks great but also enhances your brand identity and helps you connect with your target audience."
+        },
+        {
+          icon: <i className="bi bi-phone"></i>,
+          title: "Design & Prototyping",
+          description: "Ensuring your store looks stunning and functions perfectly on all devices.",
+          moreInfo: "In today’s multi-device world, having a responsive layout is crucial. Our responsive design ensures that your Shopify store looks stunning and functions perfectly on all devices, whether it’s a desktop, tablet, or smartphone. We use the latest techniques to create fluid grids and flexible images that automatically adjust to different screen sizes. This means your customers will enjoy a consistent and optimized shopping experience no matter how they access your site, leading to higher engagement and conversion rates."
+        },
+        {
+          icon: <i className="bi bi-file-earmark-code"></i>,
+          title: "Development",
+          description: "Linking your shop to social media sites to boost your digital visibility.",
+          moreInfo: "Social media integration is a powerful tool for expanding your reach and engaging with your audience. We seamlessly connect your Shopify store with major social media platforms like Facebook, Instagram, and Twitter. This allows you to easily share products, updates, and promotions, driving traffic back to your store. Additionally, integrated social media feeds keep your site content fresh and engaging. By leveraging social media, we help you build a community around your brand, increase visibility, and ultimately boost sales."
+        },
+        {
+          icon: <i className="bi bi-laptop"></i>,
+          title: "Deployment & Maintenance",
+          description: "Ensuring your store looks stunning and functions perfectly on all devices.",
+          moreInfo: "In today’s multi-device world, having a responsive layout is crucial. Our responsive design ensures that your Shopify store looks stunning and functions perfectly on all devices, whether it’s a desktop, tablet, or smartphone. We use the latest techniques to create fluid grids and flexible images that automatically adjust to different screen sizes. This means your customers will enjoy a consistent and optimized shopping experience no matter how they access your site, leading to higher engagement and conversion rates."
+        },
+        {
+          icon: <i className="bi bi-meta"></i>,
+          title: "Marketing & Social Media",
+          description: "Linking your shop to social media sites to boost your digital visibility.",
+          moreInfo: "Social media integration is a powerful tool for expanding your reach and engaging with your audience. We seamlessly connect your Shopify store with major social media platforms like Facebook, Instagram, and Twitter. This allows you to easily share products, updates, and promotions, driving traffic back to your store. Additionally, integrated social media feeds keep your site content fresh and engaging. By leveraging social media, we help you build a community around your brand, increase visibility, and ultimately boost sales."
+        },
+        {
+          icon: <i className="bi bi-capsule"></i>,
+          title: "Testing",
+          description: "Unique and tailored designs that reflect your brand’s personality and values.",
+          moreInfo: "Our custom design service ensures that your Shopify store stands out with a unique, tailored design that perfectly reflects your brand’s personality and values. We work closely with you to understand your vision and translate it into a visually stunning and cohesive design. From color schemes to typography, every element is meticulously crafted to create a seamless and engaging user experience. Our goal is to deliver a design that not only looks great but also enhances your brand identity and helps you connect with your target audience."
+        },
+      ];
+
+      const [popupData, setPopupData] = useState(null); // State for storing card data clicked
+      const [isPopupOpen, setIsPopupOpen] = useState(false); // State to control popup visibility
+    
+      // Handle click on card
+      const handleCardClick = (card) => {
+        setPopupData(card);
+        setIsPopupOpen(true);
+      };
+    
+      // Close popup
+      const closePopup = () => {
+        setIsPopupOpen(false);
+      };
 
     const [isHeaderHidden, setIsHeaderHidden] = useState(true);
     const [topSecOpacity, setTopSecOpacity] = useState(1);
   
     useEffect(() => {
+
       const handleScroll = () => {
         const scrollPosition = window.scrollY;
         
@@ -31,6 +85,17 @@ function Home() {
         window.removeEventListener('scroll', handleScroll);
       };
     }, []);
+
+    useEffect(() => {
+        if (isPopupOpen) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = 'auto';
+        }
+        return () => {
+          document.body.style.overflow = 'auto';
+        };
+      }, [isPopupOpen]);
   
 
     return(
@@ -92,43 +157,28 @@ function Home() {
                     <p>Discover our step-by-step approach to bringing ideas to life, guiding each project from initial concept to final delivery<br />with a focus on quality, creativity, and user satisfaction at every stage.</p>
                     {/* cards */}
                     <div className="cards">
-                        <div className="card">
-                            <div className="top-icon"><i class="bi bi-search"></i></div>
-                            <h2>REQUIREMENT GATHERING</h2>
-                            <p>Unique and tailored designs that reflect your brand’s personality and values.</p>
-                            <div className="bottum-icon"><i class="bi bi-info-circle"></i></div>
-                        </div>
-                        <div className="card">
-                            <div className="top-icon"><i class="bi bi-phone"></i></div>
-                            <h2>Design & Prototyping</h2>
-                            <p>Ensuring your store looks stunning and functions perfectly on all devices.</p>
-                            <div className="bottum-icon"><i class="bi bi-info-circle"></i></div>
-                        </div>
-                        <div className="card">
-                            <div className="top-icon"><i class="bi bi-file-earmark-code"></i></div>
-                            <h2>Development</h2>
-                            <p>Linking your shop to social media sites to boost your digital visibility.</p>
-                            <div className="bottum-icon"><i class="bi bi-info-circle"></i></div>
-                        </div>
-                        <div className="card">
-                            <div className="top-icon"><i class="bi bi-laptop"></i></div>
-                            <h2>Deployment & Maintenance</h2>
-                            <p>Ensuring your store looks stunning and functions perfectly on all devices.</p>
-                            <div className="bottum-icon"><i class="bi bi-info-circle"></i></div>
-                        </div>
-                        <div className="card">
-                            <div className="top-icon"><i class="bi bi-meta"></i></div>
-                            <h2>Marketing & Social Meida</h2>
-                            <p>Linking your shop to social media sites to boost your digital visibility.</p>
-                            <div className="bottum-icon"><i class="bi bi-info-circle"></i></div>
-                        </div>
-                        <div className="card">
-                            <div className="top-icon"><i class="bi bi-capsule"></i></div>
-                            <h2>Testing</h2>
-                            <p>Unique and tailored designs that reflect your brand’s personality and values.</p>
-                            <div className="bottum-icon"><i class="bi bi-info-circle"></i></div>
-                        </div>
-                    </div>
+                        {cardsData.map((card, index) =>{
+                            return(
+                                <div className="card" key={index} onClick={() => handleCardClick(card)}>
+                                    <div className="top-icon">{card.icon}</div>
+                                    <h2>{card.title}</h2>
+                                    <p>{card.description}</p>
+                                    <div className="bottum-icon"><i class="bi bi-info-circle"></i></div>
+                                </div>
+                            )
+                        })}
+                     </div>  
+                     {isPopupOpen && popupData && (
+                            <div onClick={closePopup} className="popup-overlay">
+                            <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+                                <div className="badge"><i class="bi bi-info-circle"></i> Included features</div>
+                                <i onClick={closePopup} class="bi bi-x"></i>
+                                <h2>{popupData.title}</h2>
+                                <p>{popupData.moreInfo}</p>
+                                <button  onClick={closePopup}>Back to page <i class="bi bi-arrow-down"></i></button>
+                            </div>
+                            </div>
+                        )} 
                 </div>
 
                 {/* Services */}
